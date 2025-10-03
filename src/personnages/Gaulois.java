@@ -30,19 +30,21 @@ public class Gaulois {
 	
 	public static void main(String[] args) {
 		Gaulois asterix = new Gaulois("Astérix", 8);
-		Gaulois obelix = new Gaulois("Obélix", 16);
-
+		
 		System.out.println(asterix);
 		
 	}
 
 	public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
-		romain.recevoirCoup(force /3);
+		romain.recevoirCoup((force*effetPotion) /3);
+		if (effetPotion>1) {
+			effetPotion=effetPotion-1;
+		}
 	}
 	
 	public void boirePotion(int forcePotion) {
-		this.effetPotion=forcePotion;
+		this.effetPotion=effetPotion + forcePotion;
 	}
 	
 	
