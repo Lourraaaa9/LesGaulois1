@@ -1,10 +1,10 @@
 package objets;
 import personnages.Gaulois;
-import 
 
 public class Druide {
 	private String nom;
 	private int force;
+	private Chaudron chaudron;
 	
 	public void parler(String texte) {
 		System.out.println(prendreParole() + "\"" + texte + "\"");
@@ -15,7 +15,8 @@ public class Druide {
 	}
 	
 	public void fabriquerPotion(int quantite, int forcePotion) {
-		this.quantitePotion=quantite
+		chaudron.remplirChaudron(quantite, forcePotion);
+		this.parler("J'ai concocté " + quantite + " doses de potion magique. Elle a une force de " + forcePotion + ".");
 		
 	}
 	
