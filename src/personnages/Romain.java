@@ -13,6 +13,10 @@ public class Romain {
 		return nom;
 	}
 	
+	public String toString() {
+		return nom;
+	}
+	
 	public void parler(String texte) {
 		System.out.println(prendreParole() + "\"" + texte + "\"");
 		
@@ -20,6 +24,16 @@ public class Romain {
 
 	private String prendreParole() {
 		return "Le romain " + nom + " : ";
+	}
+	
+	public void recevoirCoup(int forceCoup) {
+		this.force=this.force - forceCoup;
+		if (this.force==0) {
+			this.parler("J'abandonne !");
+		}
+		else {
+			this.parler("Aie");
+		}
 	}
 
 }
