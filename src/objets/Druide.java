@@ -34,8 +34,7 @@ public class Druide {
 				parler("Non, " + nomGaulois + " Non!... Et tu le sais très bien !");
 			}
 			else {
-				force=chaudron.prendreLouche();
-				gaulois.boirePotion(force);
+				gaulois.boirePotion(chaudron.prendreLouche());
 				parler("Tiens, " + nomGaulois + " un peu de potion magique.");
 			}
 		}
