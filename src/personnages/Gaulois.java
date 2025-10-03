@@ -42,7 +42,7 @@ public class Gaulois {
 	}
 	
 	public void boirePotion(int forcePotion) {
-		
+		this.effetPotion=forcePotion;
 	}
 	
 	
