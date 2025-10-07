@@ -22,9 +22,6 @@ public class Village {
 		return nom;
 	}
 
-
-
-
 	public Gaulois getChef() {
 		return chef;
 	}
@@ -45,7 +42,7 @@ public class Village {
 	}
 	
 	public void afficherVillage() {
-		System.out.println("Dans le village " + nom + " du chef " + chef + " vivent les légendaires gaulois :");
+		System.out.println("Dans le village \"" + nom + "\" du chef " + chef + " vivent les légendaires gaulois :");
 		for (Gaulois habitant : villageois) {
 			if (habitant != null) {
 				System.out.println("-" + habitant);
@@ -56,13 +53,25 @@ public class Village {
 	public static void main(String[] args) {
 		Gaulois abraracourcix = new Gaulois("Abraracourcix", 6);
 		Village village = new Village("Village des Irréductibles",abraracourcix,30);
+		abraracourcix.setVillage(village);
 		Gaulois asterix = new Gaulois("Astérix", 8);
 		village.ajouterVillageois(asterix);
+		
 		Gaulois gaulois = village.trouverVillageois(1);
 		System.out.println(gaulois);
 		gaulois = village.trouverVillageois(2);
 		System.out.println(gaulois);
 		village.afficherVillage();
+		
+		Gaulois obelix = new Gaulois("Obélix", 25);
+		Gaulois doublePolemix = new Gaulois("doublePolemix", 4);
+		village.ajouterVillageois(obelix);
+		village.afficherVillage();
+		
+		abraracourcix.sePresenter();
+		asterix.sePresenter();
+		doublePolemix.sePresenter();
+		
 	}
 
 
