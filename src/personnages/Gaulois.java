@@ -4,6 +4,7 @@ public class Gaulois {
 	private String nom;
 	private int force;
 	private int effetPotion=1;
+	private Village village;
 	
 	public Gaulois(String nom, int force) {
 		this.nom = nom;
@@ -14,6 +15,11 @@ public class Gaulois {
 		return nom;
 	}
 	
+	
+	public void setVillage(Village village) {
+		this.village = village;
+	}
+
 	public void parler(String texte) {
 		System.out.println(prendreParole() + "\"" + texte + "\"");
 		
@@ -23,17 +29,10 @@ public class Gaulois {
 		return "Le Gaulois " + nom + " : ";
 	}
 	
-	@Override
 	public String toString() {
 		return nom;
 	}
 	
-	public static void main(String[] args) {
-		Gaulois asterix = new Gaulois("Astérix", 8);
-		
-		System.out.println(asterix);
-		
-	}
 
 	public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
@@ -43,11 +42,20 @@ public class Gaulois {
 		}
 	}
 	
+	public void sePresenter() {
+		System.out.println("Je suis : " + this.nom + ", " + this.force + ", " + this.village);
+	}
+	
 	public void boirePotion(int forcePotion) {
 		this.effetPotion=forcePotion;
 	}
 	
 	
-
+	public static void main(String[] args) {
+		Gaulois asterix = new Gaulois("Astérix", 8);
+		
+		System.out.println(asterix);
+		
+	}
 
 }
