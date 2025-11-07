@@ -58,7 +58,7 @@ public class Romain {
 		Equipement[] equipementEjecte = null;
 		forceCoup = calculResistanceEquipement(forceCoup);
 		this.force -= forceCoup;
-		if (this.force>0) {
+		if (this.force==0) {
 			parler("Aïe");
 		}else {
 			equipementEjecte = ejecterEquipement();
