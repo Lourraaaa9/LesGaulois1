@@ -1,5 +1,5 @@
-package objets;
-import personnages.Gaulois;
+package personnages;
+import objets.Chaudron;
 
 public class Druide {
 	private String nom;
