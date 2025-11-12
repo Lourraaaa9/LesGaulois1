@@ -7,8 +7,13 @@ public class Romain {
 	private int force;
 	private Equipement[] equipements= {null,null};
 	private int nbEquipement = 0;
+	private boolean vainqueur = false;
 	
 	
+	public boolean isVainqueur() {
+		return vainqueur;
+	}
+
 	private boolean isInvariantVerified() {
 		return force>=0;
 	}
@@ -57,12 +62,17 @@ public class Romain {
 	public Equipement[] recevoirCoup(int forceCoup) {
 		Equipement[] equipementEjecte = null;
 		forceCoup = calculResistanceEquipement(forceCoup);
-		this.force -= forceCoup;
-		if (this.force==0) {
-			parler("Aïe");
+		if (forceCoup==0){
+			parler("GrÃ¢ce Ã  mon Ã©quipement, ce coup ne m'a pas touchÃ©");
+			this.vainqueur=true;
 		}else {
-			equipementEjecte = ejecterEquipement();
-			parler("J'abandonne...");
+			this.force -= forceCoup;
+			if (this.force>0) {
+				parler("Aï¿½e");
+				equipementEjecte = ejecterEquipement();
+			}else {
+				parler("J'abandonne...");
+			}
 		}
 		return equipementEjecte;
 		}
@@ -72,7 +82,7 @@ public class Romain {
 		texte = "Ma force est de " + this.force + ", et la force du coup est de " + forceCoup;
 		int resistanceEquipement = 0;
 		if (this.nbEquipement != 0) {
-			texte += "\nMais heureusement, grace à mon équipement sa force est diminué de ";
+			texte += "\nMais heureusement, grace ï¿½ mon ï¿½quipement sa force est diminuï¿½ de ";
 			for (int i = 0; i < this.nbEquipement;i++) {
 				if (equipements[i] != null && equipements[i].equals(Equipement.BOUCLIER)) {
 					resistanceEquipement += 8;
@@ -96,7 +106,7 @@ public class Romain {
 
 	private Equipement[] ejecterEquipement() {
 		Equipement[] equipementEjecte = new Equipement[nbEquipement];
-		System.out.println("L'équipement de " + nom + " s'envole sous la force du coup.");
+		System.out.println("L'ï¿½quipement de " + nom + " s'envole sous la force du coup.");
 		int nbEquipementEjecte = 0;
 		for (int i = 0; i < nbEquipement; i++) {
 			if (this.equipements[i] != null) {
@@ -116,17 +126,17 @@ public class Romain {
 			this.equipements[0]=equipementNouv;
 		}
 		nbEquipement++;
-		System.out.println("Le soldat " + this.nom + " s'équipe avec un " + equipementNouv);
+		System.out.println("Le soldat " + this.nom + " s'ï¿½quipe avec un " + equipementNouv);
 	}
 	
 	public void sEquiper(Equipement equipementNouv) {
 		switch (this.nbEquipement) {
 		case 2 :
-			System.out.println("Le soldat " + this.nom + " est déjà  bien protégé!");
+			System.out.println("Le soldat " + this.nom + " est dï¿½jï¿½ bien protï¿½gï¿½!");
 			break;
 		case 1:
 			if (this.equipements[0]==equipementNouv) {
-				System.out.println("Le soldat " + this.nom + " possède déjà  un " + equipementNouv);
+				System.out.println("Le soldat " + this.nom + " possï¿½de dï¿½jï¿½ un " + equipementNouv);
 			}
 			else {
 				ajoutEquipement(equipementNouv);
