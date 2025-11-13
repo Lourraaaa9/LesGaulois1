@@ -5,7 +5,7 @@ import objets.Equipement;
 public class Romain {
 	private String nom;
 	private int force;
-	private Equipement[] equipements= {null,null};
+	private Equipement[] equipements={null,null};// new Equipement[2];
 	private int nbEquipement = 0;
 	private boolean vainqueur = false;
 	
